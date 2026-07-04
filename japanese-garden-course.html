@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Искусство японского сада — курс для ландшафтных дизайнеров</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EDEBE3;
+  --paper-deep:#E4E1D5;
+  --ink:#1B1C18;
+  --ink-soft:#3C3E36;
+  --pine:#445641;
+  --moss:#7B8A63;
+  --stone:#A3A093;
+  --shu:#A83E24;
+  --line:#CFCBBC;
+  --display:"Cormorant Garamond",Georgia,serif;
+  --body:"PT Serif",Georgia,serif;
+  --jp:"Noto Serif JP","Hiragino Mincho ProN",serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:17px;
+  line-height:1.65;
+}
+a{color:var(--pine)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--shu);outline-offset:3px}
+
+/* ---------- левая рейка навигации ---------- */
+.rail{
+  position:fixed;top:0;left:0;bottom:0;width:230px;
+  border-right:1px solid var(--line);
+  background:var(--paper);
+  padding:34px 0 28px 30px;
+  display:flex;flex-direction:column;gap:26px;
+  z-index:10;overflow-y:auto;
+}
+.rail .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.hanko{
+  width:44px;height:44px;flex:0 0 44px;
+  background:var(--shu);color:#F4EFE2;
+  font-family:var(--jp);font-size:24px;font-weight:600;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:6px;
+  box-shadow:inset 0 0 0 2px rgba(244,239,226,.35);
+}
+.brand-name{font-family:var(--display);font-size:19px;line-height:1.2;font-weight:600;letter-spacing:.02em}
+.brand-name small{display:block;font-family:var(--body);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);margin-top:3px}
+.rail nav{display:flex;flex-direction:column;gap:2px}
+.rail nav a{
+  display:flex;align-items:baseline;gap:10px;
+  padding:9px 14px 9px 0;
+  text-decoration:none;color:var(--ink-soft);
+  font-size:14.5px;border-left:2px solid transparent;padding-left:12px;margin-left:-14px;
+}
+.rail nav a .kj{font-family:var(--jp);font-size:15px;color:var(--stone);width:20px;flex:0 0 20px}
+.rail nav a:hover{color:var(--ink)}
+.rail nav a.active{border-left-color:var(--shu);color:var(--ink)}
+.rail nav a.active .kj{color:var(--shu)}
+.rail .foot{margin-top:auto;font-size:11.5px;color:var(--stone);line-height:1.5;padding-right:22px}
+
+/* ---------- контент ---------- */
+.page{margin-left:230px}
+.inner{max-width:860px;padding:0 56px;margin:0 auto}
+
+/* hero */
+.hero{
+  min-height:88vh;display:flex;align-items:center;
+  border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(1100px 460px at 85% -10%, rgba(123,138,99,.16), transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, rgba(163,160,147,.18), transparent 55%),
+    var(--paper);
+  position:relative;overflow:hidden;
+}
+.hero .kanji-bg{
+  position:absolute;right:40px;top:50%;transform:translateY(-50%);
+  font-family:var(--jp);font-size:min(300px,26vw);line-height:1;
+  color:rgba(68,86,65,.08);user-select:none;pointer-events:none;
+  writing-mode:vertical-rl;
+}
+.hero .inner{padding-top:80px;padding-bottom:80px;position:relative}
+.eyebrow{
+  font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--shu);margin-bottom:22px;
+}
+h1{
+  font-family:var(--display);font-weight:500;
+  font-size:clamp(40px,5.2vw,64px);line-height:1.06;letter-spacing:-.01em;
+  max-width:15ch;
+}
+.hero p.lead{
+  margin-top:26px;max-width:52ch;font-size:18.5px;color:var(--ink-soft);
+}
+.hero .meta{
+  margin-top:38px;display:flex;gap:36px;flex-wrap:wrap;
+  font-size:14px;color:var(--ink-soft);
+}
+.hero .meta b{display:block;font-family:var(--display);font-size:26px;font-weight:600;color:var(--ink)}
+
+/* модуль */
+.module{border-bottom:1px solid var(--line);padding:78px 0 64px;position:relative}
+.mod-head{display:grid;grid-template-columns:76px 1fr;gap:30px;margin-bottom:16px}
+.mod-spine{
+  writing-mode:vertical-rl;font-family:var(--jp);
+  font-size:44px;line-height:76px;color:var(--pine);
+  border-left:1px solid var(--line);padding-left:0;
+  height:150px;display:flex;align-items:flex-start;justify-content:center;
+}
+.mod-label{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--stone);margin-bottom:10px}
+.mod-head h2{font-family:var(--display);font-weight:500;font-size:clamp(30px,3.4vw,42px);line-height:1.12}
+.mod-intro{color:var(--ink-soft);max-width:60ch;margin:14px 0 8px}
+
+/* урок */
+.lesson{margin-top:44px}
+.lesson-head{display:flex;align-items:baseline;gap:14px;border-top:1px solid var(--line);padding-top:22px}
+.lesson-no{font-family:var(--display);font-size:15px;color:var(--shu);letter-spacing:.06em;white-space:nowrap}
+.lesson h3{font-family:var(--display);font-weight:600;font-size:24px;line-height:1.25}
+.lesson .terms{font-size:13.5px;color:var(--stone);margin-top:4px;font-style:italic}
+.lesson p{margin-top:14px;max-width:66ch}
+.lesson ul{margin:14px 0 0 2px;list-style:none;max-width:66ch}
+.lesson ul li{padding-left:22px;position:relative;margin-top:9px}
+.lesson ul li::before{
+  content:"";position:absolute;left:0;top:.62em;
+  width:9px;height:9px;background:var(--shu);
+  clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);
+  opacity:.85;
+}
+.note{
+  margin-top:18px;padding:16px 20px;max-width:66ch;
+  background:var(--paper-deep);border-left:3px solid var(--moss);
+  font-size:15.5px;color:var(--ink-soft);
+}
+.note b{color:var(--ink)}
+
+/* углублённый разбор */
+.deep{margin-top:26px;max-width:70ch;border:1px solid var(--line);background:var(--paper-deep)}
+.deep summary{
+  cursor:pointer;list-style:none;padding:16px 20px;
+  font-family:var(--display);font-size:19px;font-weight:600;
+  display:flex;align-items:center;gap:12px;
+}
+.deep summary::-webkit-details-marker{display:none}
+.deep summary::before{content:"深";font-family:var(--jp);font-weight:400;font-size:16px;color:var(--shu)}
+.deep summary::after{content:"+";margin-left:auto;font-family:var(--display);font-size:22px;color:var(--stone)}
+.deep[open] summary::after{content:"−"}
+.deep .deep-body{padding:2px 20px 22px;border-top:1px solid var(--line)}
+.deep .step{margin-top:18px}
+.deep .step b{display:block;font-family:var(--display);font-size:17px;color:var(--pine)}
+.deep .step b span{color:var(--shu);margin-right:8px}
+.deep p{margin-top:10px;font-size:16px}
+
+/* практикум: типовые участки */
+.cases{margin-top:64px}
+.cases-title{font-family:var(--display);font-weight:500;font-size:clamp(26px,3vw,34px);margin-bottom:6px}
+.cases-sub{color:var(--ink-soft);max-width:62ch}
+.case{border:1px solid var(--line);margin-top:26px;background:var(--paper)}
+.case-head{display:flex;align-items:center;gap:14px;padding:16px 22px;background:var(--paper-deep);border-bottom:1px solid var(--line)}
+.case-head .cj{font-family:var(--jp);font-size:22px;color:var(--shu);flex:0 0 auto}
+.case-head h4{font-family:var(--display);font-size:20px;font-weight:600;line-height:1.25}
+.case-head .dim{font-size:12.5px;color:var(--stone);margin-left:auto;white-space:nowrap;font-style:italic}
+.case-body{padding:6px 22px 20px}
+.case-body .strategy{margin-top:14px;max-width:68ch}
+.case-body .strategy b{color:var(--pine)}
+.case-body ul{margin:12px 0 0 2px;list-style:none;max-width:68ch}
+.case-body ul li{padding-left:22px;position:relative;margin-top:8px;font-size:16px}
+.case-body ul li::before{content:"";position:absolute;left:0;top:.6em;width:9px;height:9px;background:var(--shu);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);opacity:.85}
+.case-body .err{margin-top:14px;padding:12px 16px;background:var(--paper-deep);border-left:3px solid var(--shu);font-size:15px;color:var(--ink-soft);max-width:68ch}
+.case-body .err b{color:var(--shu)}
+@media (max-width:1060px){.case-head{flex-wrap:wrap}.case-head .dim{margin-left:0;width:100%}}
+
+/* растительная палитра */
+.legend{display:flex;flex-wrap:wrap;gap:10px 22px;margin:18px 0 6px;font-size:13.5px;color:var(--ink-soft)}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.ptag{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:24px;height:24px;flex:0 0 24px;
+  font-family:var(--jp);font-size:13px;
+  background:var(--paper-deep);border:1px solid var(--line);color:var(--pine);
+}
+.pgroup{margin-top:40px}
+.pgroup h4{font-family:var(--display);font-size:21px;font-weight:600;border-top:1px solid var(--line);padding-top:18px}
+.pgroup .pg-note{font-size:15px;color:var(--ink-soft);margin-top:6px;max-width:66ch}
+.prow{
+  display:grid;grid-template-columns:minmax(220px,1.1fr) minmax(170px,.8fr) 1.5fr;
+  gap:6px 22px;padding:13px 0;border-bottom:1px dashed var(--line);
+  font-size:15.5px;align-items:baseline;
+}
+.prow .pname b{display:block}
+.prow .pname i{font-size:13px;color:var(--stone)}
+.prow .proles{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.prow .proles .txt{font-size:13.5px;color:var(--pine)}
+.prow .pnote{color:var(--ink-soft);font-size:14.5px}
+@media (max-width:1060px){.prow{grid-template-columns:1fr;gap:4px;padding:14px 0}}
+
+/* фотоматериалы */
+figure.photo{margin-top:22px;max-width:760px}
+.ph-frame{
+  position:relative;aspect-ratio:16/9;overflow:hidden;
+  background:
+    radial-gradient(120% 90% at 20% 0%, rgba(123,138,99,.22), transparent 55%),
+    radial-gradient(110% 100% at 90% 100%, rgba(68,86,65,.20), transparent 55%),
+    linear-gradient(160deg,#DBD8CA,#C9C6B6);
+  border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+}
+.ph-frame::after{
+  content:attr(data-kanji);
+  font-family:var(--jp);font-size:110px;color:rgba(27,28,24,.07);
+  position:absolute;inset:auto;pointer-events:none;
+}
+.ph-frame .ph-tag{
+  position:relative;z-index:1;
+  font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-soft);background:rgba(237,235,227,.85);
+  border:1px solid var(--line);padding:7px 14px;
+}
+figure.photo img{display:block;width:100%;height:100%;object-fit:cover}
+figcaption{
+  margin-top:10px;font-size:14px;color:var(--ink-soft);line-height:1.5;
+}
+figcaption .kw{display:block;margin-top:3px;color:var(--stone);font-size:12.5px}
+figcaption .kw::before{content:"поиск: ";color:var(--shu);letter-spacing:.05em}
+
+/* финальный блок */
+.final{padding:78px 0 90px}
+.final ol{counter-reset:rec;list-style:none;margin-top:26px;max-width:66ch}
+.final ol li{counter-increment:rec;position:relative;padding-left:58px;margin-top:22px}
+.final ol li::before{
+  content:counter(rec,decimal-leading-zero);
+  position:absolute;left:0;top:0;
+  font-family:var(--display);font-size:26px;color:var(--shu);
+}
+.final ol li b{display:block;font-family:var(--display);font-size:19px;margin-bottom:4px}
+.colophon{margin-top:70px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--stone);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+/* адаптив */
+@media (max-width:1060px){
+  .rail{position:static;width:auto;border-right:0;border-bottom:1px solid var(--line);padding:22px 24px;flex-direction:row;align-items:center;gap:18px;overflow-x:auto}
+  .rail nav{flex-direction:row;gap:14px}
+  .rail nav a{border-left:0;border-bottom:2px solid transparent;margin:0;padding:6px 2px;white-space:nowrap}
+  .rail nav a.active{border-bottom-color:var(--shu)}
+  .rail .foot{display:none}
+  .page{margin-left:0}
+  .inner{padding:0 26px}
+  .hero{min-height:auto}
+  .hero .kanji-bg{display:none}
+  .mod-head{grid-template-columns:1fr;gap:10px}
+  .mod-spine{writing-mode:horizontal-tb;height:auto;border-left:0;font-size:30px;line-height:1;justify-content:flex-start;color:var(--pine)}
+}
+</style>
+</head>
+<body>
+
+<aside class="rail">
+  <a class="brand" href="#top">
+    <span class="hanko" aria-hidden="true">庭</span>
+    <span class="brand-name">Японский сад<small>курс проектирования</small></span>
+  </a>
+  <nav aria-label="Модули курса">
+    <a href="#m1"><span class="kj">心</span>1 · Философия</a>
+    <a href="#pillars"><span class="kj">六</span>Шесть столпов</a>
+    <a href="#m2"><span class="kj">石</span>2 · Камень</a>
+    <a href="#m3"><span class="kj">水</span>3 · Вода</a>
+    <a href="#m4"><span class="kj">木</span>4 · Растения и мох</a>
+    <a href="#palette"><span class="kj">植</span>Палитра севера</a>
+    <a href="#m5"><span class="kj">灯</span>5 · Детали и МАФ</a>
+    <a href="#m6"><span class="kj">図</span>6 · Archicad + Enscape</a>
+    <a href="#final"><span class="kj">道</span>Рекомендации</a>
+  </nav>
+  <div class="foot">6 модулей · 18 уроков<br>+ раздел «Шесть столпов»<br>для ландшафтных дизайнеров,<br>начинающих с нуля</div>
+</aside>
+
+<main class="page" id="top">
+
+<header class="hero">
+  <div class="kanji-bg" aria-hidden="true">枯山水</div>
+  <div class="inner">
+    <div class="eyebrow">Курс · от философии к проектированию</div>
+    <h1>Искусство японского сада</h1>
+    <p class="lead">Аутентичный японский сад — это не набор фонарей и сакур, а система правил, сложившаяся за тысячу лет: от трактата «Сакутэйки» до садов Киото. Курс проведёт от философии созерцания к рабочему проекту, который вы соберёте в Archicad и покажете заказчику в Enscape.</p>
+    <div class="meta">
+      <div><b>6</b>модулей</div>
+      <div><b>18</b>уроков</div>
+      <div><b>石水木</b>камень · вода · дерево</div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= МОДУЛЬ 1 ================= -->
+<section class="module" id="m1">
+  <div class="inner">
+    <div class="mod-head">
+      <div class="mod-spine" aria-hidden="true">心</div>
+      <div>
+        <div class="mod-label">Модуль 1</div>
+        <h2>Философия и основы проектирования</h2>
+        <p class="mod-intro">Прежде чем ставить первый камень, нужно понять, зачем японский сад существует: это пространство созерцания, а не декорации. Все технические решения курса вырастают из принципов этого модуля.</p>
+      </div>
+    </div>
+
+    <article class="lesson" id="l1-1">
+      <div class="lesson-head"><span class="lesson-no">Урок 1.1</span><div><h3>Введение в японскую ментальность</h3><div class="terms">ханами 花見 · цукими 月見 · юкими 雪見</div></div></div>
+      <p>Японская культура выработала целые ритуалы любования природой: <b>ханами</b> — любование цветением, <b>цукими</b> — луной, <b>юкими</b> — снегом. Сад проектируется как календарь таких событий: он должен быть красив не «вообще», а в конкретный момент — когда облетает клён, когда снег ложится на крышку фонаря, когда луна отражается в пруду.</p>
+      <p>Практический вывод для дизайнера: ещё на стадии концепции вы назначаете саду сезонные «пики» и видовые точки под каждый из них. Скамья или энгава (веранда) ставится не там, где удобно строителю, а там, откуда открывается спланированная картина.</p>
+      <ul>
+        <li>Составьте для участка «календарь любования»: что цветёт, желтеет и как ложится снег по месяцам.</li>
+        <li>Для каждого события назначьте одну видовую точку и один главный объект наблюдения.</li>
+        <li>Фонарь юкими-торо с широкой крышей — классический объект именно зимнего любования.</li>
+      </ul>
+      <figure class="photo">
+        <div class="ph-frame" data-kanji="花"><span class="ph-tag">Фото · урок 1.1</span></div>
+        <figcaption>Цветущая сакура над прудом и тот же ракурс с осенними клёнами — пара кадров, показывающая сезонность одной видовой точки.
+        <span class="kw">japanese garden hanami pond · japanese garden autumn maple same view</span></figcaption>
+      </figure>
+    </article>
+
+    <article class="lesson" id="l1-2">
+      <div class="lesson-head"><span class="lesson-no">Урок 1.2</span><div><h3>Шесть столпов японского сада</h3><div class="terms">сюккэй 縮景 · фукинсэй 不均整 · кансо 簡素</div></div></div>
+      <p>Все великие сады Японии, от Рёандзи до Кэнрокуэна, держатся на шести принципах. Здесь — общая карта, каждый столп подробно, с эталонными садами-примерами, разобран в <a href="#pillars">отдельном разделе ниже</a>:</p>
+      <ul>
+        <li><b>Миниатюризация природы (сюккэй)</b> — сад как действующая модель мира: холм изображает гору, пруд — море, гравий — океан.</li>
+        <li><b>Асимметрия (фукинсэй)</b> — равновесие без зеркальности: нечётные числа, неравновесные треугольники.</li>
+        <li><b>Отсутствие случайных элементов</b> — у каждого камня, растения и фонаря есть роль; необъяснимое убирают.</li>
+        <li><b>Простота (кансо)</b> — ограниченный набор материалов; богатство достигается фактурой, а не ассортиментом.</li>
+        <li><b>Уединённость</b> — сад отгораживается от внешнего мира и создаёт пространство тишины.</li>
+        <li><b>Монохромность</b> — основа палитры зелёно-серо-коричневая; цветение — редкий и потому драгоценный акцент.</li>
+      </ul>
+      <p>Шесть столпов — не «стилистика», а система проверки решений: они будут работать инструментом контроля в каждом следующем модуле, от расстановки камней до настройки материалов в Enscape.</p>
+      <div class="note"><b>Проверка проекта:</b> закройте план рукой и открывайте по фрагменту. Если какой-то элемент нельзя объяснить одним из шести принципов — это кандидат на удаление.</div>
+    </article>
+
+    <article class="lesson" id="l1-3">
+      <div class="lesson-head"><span class="lesson-no">Урок 1.3</span><div><h3>Планировка и зонирование</h3><div class="terms">миэгакурэ 見え隠れ · сяккэй 借景</div></div></div>
+      <p>Японский маршрут никогда не ведёт к цели напрямую. Принцип <b>миэгакурэ</b> («скрой и покажи») требует, чтобы сад раскрывался последовательно: дорожка изгибается, посадки перекрывают обзор, и за каждым поворотом открывается новая картина. Так небольшой участок субъективно удлиняется в несколько раз.</p>
+      <p><b>Сяккэй</b> — «заимствованный пейзаж»: далёкий лес, холм или даже соседская крупная сосна включаются в композицию как задний план. Граница участка маскируется, и сад визуально продолжается за забором.</p>
+      <ul>
+        <li>Начинайте планировку с карты видов: что видно за участком и что нужно скрыть.</li>
+        <li>Извилистая дорожка проектируется от видовых точек, а не наоборот.</li>
+        <li>Каждый изгиб маршрута должен быть мотивирован: камень, дерево, перепад рельефа.</li>
+      </ul>
+
+      <details class="deep">
+        <summary>Разбор: почему дорожка проектируется от видовых точек</summary>
+        <div class="deep-body">
+          <p>Типичная ошибка — нарисовать на плане «красивую» S-образную дорожку, а потом расставить вдоль неё камни и деревья. Изгибы получаются ничем не мотивированными, и глаз это считывает: дорожка петляет «просто так», как в парке спального района. Канонический порядок обратный:</p>
+          <div class="step"><b><span>Шаг 1</span>Сначала — картины</b>
+          <p>Определите 3–5 видовых точек и для каждой скомпонуйте кадр: что зритель видит, с какого расстояния, что на переднем плане, что в глубине. Это режиссура — сад как последовательность сцен. У каждой сцены есть свой ракурс: триада камней читается с одной точки, водопад — с другой, отражение фонаря в воде — только с третьей.</p></div>
+          <div class="step"><b><span>Шаг 2</span>Затем — маршрут как монтаж сцен</b>
+          <p>Дорожка — способ провести человека через сцены в нужном порядке и ритме. Каждый изгиб отвечает на вопрос «что я показываю или скрываю этим поворотом»: развернуть идущего лицом к следующей картине; спрятать её до поворота (миэгакурэ) — за холмом, группой карикоми, стволом сосны; создать паузу — крупный камень тоби-иси там, где человек останавливается и поднимает взгляд.</p></div>
+          <div class="step"><b><span>Шаг 3</span>Только потом — заполнение</b>
+          <p>Второстепенные посадки и камни поддерживают драматургию: перекрывают преждевременные виды, направляют взгляд, обрамляют кадры.</p></div>
+          <div class="step"><b><span>Следствия</span>Темп и подача</b>
+          <p>Дорожка почти никогда не подходит к объекту фронтально — она подводит по касательной, чтобы вид открылся «случайно». Темп задаётся раскладкой камней: мелкий частый шаг — человек смотрит под ноги и идёт быстро, сцена скрыта; крупная плита — остановка, взгляд поднимается, кадр открывается. Ритм тоби-иси — это тайминг раскадровки.</p></div>
+          <div class="step"><b><span>Archicad</span>Порядок работы в модели</b>
+          <p>Сначала ставятся камеры — те самые видовые точки, высота 1,5–1,6 м — и каждая сцена компонуется в 3D-окне или Enscape до рабочего кадра. Трасса дорожки трассируется последней, как ломаная между камерами, где каждый излом обоснован разворотом на сцену или её сокрытием. Быстрый тест: пройдите маршрут в Enscape в режиме walk-through и назовите для каждого поворота, что он делает — показывает, скрывает или тормозит. Поворот без ответа — лишний.</p></div>
+        </div>
+      </details>
+
+      <figure class="photo">
+        <div class="ph-frame" data-kanji="景"><span class="ph-tag">Фото · урок 1.3</span></div>
+        <figcaption>Изогнутая дорожка, частично скрытая посадками, и пример сяккэй — сад с горой на заднем плане (например, сад Тэнрюдзи с горами Арасиямы).
+        <span class="kw">japanese garden winding path · Tenryuji garden borrowed scenery</span></figcaption>
+      </figure>
+    </article>
+  </div>
+</section>
+
+<!-- ================= ШЕСТЬ СТОЛПОВ ================= -->
+<section class="module" id="pillars">
+  <div class="inner">
+    <div class="mod-head">
+      <div class="mod-spine" aria-hidden="true">六柱</div>
+      <div>
+        <div class="mod-label">Раздел · углублённо</div>
+        <h2>Шесть столпов японского сада</h2>
+        <p class="mod-intro">Разбор каждого принципа: механика «как это работает», рабочие правила и эталонный сад-доказательство. Фото здесь подобраны не как иллюстрации, а как доказательства: каждый кадр демонстрирует принцип в предельном, чистом виде.</p>
+      </div>
+    </div>
+
+    <article class="lesson" id="lp-1">
+      <div class="lesson-head"><span class="lesson-no">Столп 1</span><div><h3>Миниатюризация природы</h3><div class="terms">сюккэй 縮景 · сансуй 山水 (пейзаж «гора-вода»)</div></div></div>
+      <p>Сад — не изображение природы, а её действующая модель в сжатом масштабе. Холм в три метра читается как гора, потому что соблюдены природные пропорции: крутизна склона, посадка деревьев, «выходы скал» из земли. Мозг достраивает масштаб по пропорциям, а не по абсолютным размерам.</p>
+      <ul>
+        <li>Уменьшая объект — уменьшайте всё вокруг: сосна у «горы» формуется низкой, камни у «моря» окатаны как прибрежные.</li>
+        <li>Один элемент в честном масштабе (обычная скамейка рядом с «горой») разрушает всю иллюзию.</li>
+        <li>Предельный случай — конус песка Когэцудай в Гинкакудзи: гора Фудзи из одного материала.</li>
+      </ul>
+      <figure class="photo">
+        <div class="ph-frame" data-kanji="縮"><span class="ph-tag">Фото · столп 1</span></div>
+        <figcaption><b>Почему этот кадр:</b> цукияма-сад (сад с искусственными холмами), снятый с уровня глаз так, что границ участка не видно, — пейзаж читается как настоящая горная долина с озером. Это и есть тест принципа: если фрагмент сада можно принять за фотографию природы, сюккэй работает.
+        <span class="kw">Ritsurin garden pond pine hill landscape Takamatsu · Kogetsudai Ginkakuji sand cone</span></figcaption>
+      </figure>
+    </article>
+
+    <article class="lesson" id="lp-2">
+      <div class="lesson-head"><span class="lesson-no">Столп 2</span><div><h3>Асимметрия</h3><div class="terms">фукинсэй 不均整</div></div></div>
+      <p>Симметрия — знак человеческой воли; природа её не знает. Японская композиция строится на равновесии без зеркальности: неравносторонний треугольник вместо оси, нечётные числа (3–5–7), смещённые центры тяжести. Крупный камень слева уравновешивается не таким же справа, а группой мелких, деревом или даже пустотой на большем плече рычага.</p>
+      <ul>
+        <li>Нечётные числа работают механически: три предмета невозможно расставить симметрично, не выстроив их в линию, — асимметрия получается сама.</li>
+        <li>Пустота (ма 間) — полноправный участник равновесия, а не «незаполненное место».</li>
+      </ul>
+      <figure class="photo">
+        <div class="ph-frame" data-kanji="不"><span class="ph-tag">Фото · столп 2</span></div>
+        <figcaption><b>Почему этот кадр:</b> Рёандзи — 15 камней в группах 5-2-3-2-3, ни одна пара не рифмуется, но поле в идеальном покое. С любой точки веранды видно максимум 14 камней: у композиции принципиально нет «правильной» точки полного обзора — асимметрия, доведённая до философии.
+        <span class="kw">Ryoanji rock garden view from veranda Kyoto</span></figcaption>
+      </figure>
+    </article>
+
+    <article class="lesson" id="lp-3">
+      <div class="lesson-head"><span class="lesson-no">Столп 3</span><div><h3>Отсутствие случайных элементов</h3><div class="terms">родзи 露地 · секимори-иси 関守石</div></div></div>
+      <p>Лучше всего принцип виден в родзи — чайном саду, где у каждого предмета есть имя и должность: камень, на котором стоят у цукубая (маэ-иси), камень для кувшина (юоке-иси), камень для светильника (тэсёку-иси), камень «сюда не ходи» (секимори-иси — маленький камень, перевязанный верёвкой, который кладут на дорожку, закрывая проход). Сад — интерфейс: каждый элемент направляет движение, готовит восприятие или обслуживает ритуал.</p>
+      <ul>
+        <li>Обратная сторона принципа — редактура: садовник тратит на удаление (ветвей, камней, самосева) больше времени, чем на добавление.</li>
+        <li>Тест из урока 1.2: элемент, роль которого нельзя назвать вслух, — кандидат на удаление.</li>
+      </ul>
+      <figure class="photo">
+        <div class="ph-frame" data-kanji="役"><span class="ph-tag">Фото · столп 3</span></div>
+        <figcaption><b>Почему этот кадр:</b> ансамбль цукубая целиком — на одном фото видно, что вокруг чаши нет ни одного «просто камня», каждый стоит на своей должности. Второй сюжет — секимори-иси: предмет, единственная функция которого — сказать «сюда не ходи»; более чистого примера «элемента с ролью» не существует.
+        <span class="kw">Ryoanji tsukubai stone basin · sekimori ishi tied stone rope japanese garden path</span></figcaption>
+      </figure>
+    </article>
+
+    <article class="lesson" id="lp-4">
+      <div class="lesson-head"><span class="lesson-no">Столп 4</span><div><h3>Простота</h3><div class="terms">кансо 簡素</div></div></div>
+      <p>Кансо — не бедность, а дисциплина: два-три материала, пять-семь видов растений на весь сад. Богатство переносится с ассортимента на фактуру и нюанс: двадцать оттенков зелёного в моховом ковре, игра света на бороздах гравия, разница между шершавым и окатанным камнем одной породы. Ограничение палитры заставляет глаз замечать тонкие различия, которые в пёстром саду были бы неразличимы — та же логика, что в хорошей типографике.</p>
+      <ul>
+        <li>Практический порог: ассортиментная ведомость длиннее десяти позиций — уже не японский сад, а коллекция.</li>
+        <li>Разнообразие достигается формовкой и фактурой одних и тех же видов, а не новыми видами.</li>
+      </ul>
+      <figure class="photo">
+        <div class="ph-frame" data-kanji="簡"><span class="ph-tag">Фото · столп 4</span></div>
+        <figcaption><b>Почему этот кадр:</b> сад из трёх компонентов — мох, гравий, один клён (или одна группа камней). Кадр доказывает, что трёх материалов достаточно для полноценной, богатой картины; поэтому нужен сад предельно короткого «состава», а не пышный храмовый комплекс.
+        <span class="kw">Shisendo temple garden Kyoto white sand azalea</span></figcaption>
+      </figure>
+    </article>
+
+    <article class="lesson" id="lp-5">
+      <div class="lesson-head"><span class="lesson-no">Столп 5</span><div><h3>Уединённость</h3><div class="terms">такэгаки 竹垣 (бамбуковая изгородь) · цубонива 坪庭</div></div></div>
+      <p>Японский сад интровертен: он не украшает дом снаружи, а создаёт замкнутый мир внутри. Граница делается многослойной — бамбуковые изгороди, глухие стены с черепичной крышей, вечнозелёные кулисы, — а планировка работает как декомпрессия: вход никогда не открывает сад целиком, маршрут сначала «отсекает» город (узкий проход, поворот, понижение) и только потом раскрывает пространство.</p>
+      <ul>
+        <li>Звук тоже проектируется: сиси-одоси и вода маскируют шум улицы.</li>
+        <li>Родзи перед чайным домом существует именно для этого: за тридцать метров пути человек выходит из городского состояния.</li>
+      </ul>
+      <figure class="photo">
+        <div class="ph-frame" data-kanji="静"><span class="ph-tag">Фото · столп 5</span></div>
+        <figcaption><b>Почему этот кадр:</b> цубонива — крошечный внутренний сад в разрыве городской застройки Киото, часто 3–5 м². Ценен контрастом: снаружи плотный город, внутри законченный мир с камнем, мхом и фонарём. Доказывает, что уединённость — функция границы, а не размера участка.
+        <span class="kw">tsuboniwa small courtyard garden machiya interior view</span></figcaption>
+      </figure>
+    </article>
+
+    <article class="lesson" id="lp-6">
+      <div class="lesson-head"><span class="lesson-no">Столп 6</span><div><h3>Монохромность</h3><div class="terms">палитра: зелёный · серый · бурый</div></div></div>
+      <p>Базовое состояние сада — гамма зелёного, серого и бурого: мох, хвоя, камень, состаренное дерево. Это не аскеза, а драматургия: на нейтральном фоне редкое цветение или осенняя вспышка клёна получает силу события. Сакура потрясает именно потому, что пятьдесят недель в году сад был зелёно-серым; в миксбордере, цветущем непрерывно, ни одно цветение событием не является.</p>
+      <ul>
+        <li>Растения выбираются в первую очередь за форму, фактуру листа и силуэт; за цветение — единицы.</li>
+        <li>«Выступления» цветущих растений разводятся по календарю, чтобы акценты не совпадали (см. календарь любования, урок 1.1).</li>
+      </ul>
+      <figure class="photo">
+        <div class="ph-frame" data-kanji="彩"><span class="ph-tag">Фото · столп 6</span></div>
+        <figcaption><b>Почему этот кадр:</b> эталонная пара — (а) зелёно-серый сад вне сезона цветения: доказательство, что монохром самодостаточен и держится на фактурах; (б) тот же тип сада с одним алым клёном: единственный цветовой акцент взрывается на нейтральном фоне.
+        <span class="kw">Gioji temple moss garden Arashiyama · red maple over green moss japanese temple autumn</span></figcaption>
+      </figure>
+    </article>
+  </div>
+</section>
+
+<!-- ================= МОДУЛЬ 2 ================= -->
+<section class="module" id="m2">
+  <div class="inner">
+    <div class="mod-head">
+      <div class="mod-spine" aria-hidden="true">石</div>
+      <div>
+        <div class="mod-label">Модуль 2</div>
+        <h2>Камень — скелет сада</h2>
+        <p class="mod-intro">В японской традиции сад начинается с камней: они образуют неизменный костяк, вокруг которого живёт и меняется всё остальное. Растения можно пересадить, камень стоит века.</p>
+      </div>
+    </div>
+
+    <article class="lesson" id="l2-1">
+      <div class="lesson-head"><span class="lesson-no">Урок 2.1</span><div><h3>Искусство сутэ-иси</h3><div class="terms">сутэ-иси 捨て石 · «Сакутэйки» 作庭記, XI век</div></div></div>
+      <p>Древнейшее в мире руководство по садоводству — трактат <b>«Сакутэйки»</b> (XI век) — начинается с главного правила: «следуй просьбе камня». Камень нельзя заставить играть чужую роль; его форма сама подсказывает, лежать ему или стоять, быть главным или сопровождающим.</p>
+      <p>Камни делят по характеру: <b>вертикальные</b> — активная, «мужская» энергия, они собирают композицию и притягивают взгляд; <b>горизонтальные и лежачие</b> — «женская» энергия покоя, они заземляют и успокаивают сцену. Классическая группа сочетает оба типа.</p>
+      <ul>
+        <li>Камень заглубляется минимум на треть высоты — он должен «расти» из земли, а не лежать на ней.</li>
+        <li>Слоистость и «направление» породы у всех камней группы должно совпадать, как в природном выходе скалы.</li>
+        <li>Лучший камень — состаренный: с лишайником, патиной, следами воды. Свежий скол — брак.</li>
+      </ul>
+      <figure class="photo">
+        <div class="ph-frame" data-kanji="石"><span class="ph-tag">Фото · урок 2.1</span></div>
+        <figcaption>Крупная группа камней с явной доминантой: вертикальный камень в окружении лежачих, заглублённых в мох.
+        <span class="kw">japanese garden stone setting ishigumi · sakuteiki stone arrangement</span></figcaption>
+      </figure>
+    </article>
+
+    <article class="lesson" id="l2-2">
+      <div class="lesson-head"><span class="lesson-no">Урок 2.2</span><div><h3>Композиция из камней</h3><div class="terms">исигуми 石組 · садзон-исигуми (триада)</div></div></div>
+      <p>Камни группируются по <b>3, 5 или 7</b> — нечётные числа исключают симметрию. Базовая фигура — неравносторонний треугольник: высокий камень («небо»), средний («человек»), низкий («земля»). Группы связываются между собой так, чтобы из главной видовой точки они читались как единый пейзаж.</p>
+      <p>Фактура — рабочий инструмент композиции: <b>шероховатые, изломанные</b> поверхности притягивают взгляд и ставятся в акцентных местах; <b>гладкие, окатанные</b> — успокаивают и используются как фон и «паузы».</p>
+      <ul>
+        <li>Расставляйте группы от главной: сначала доминанта участка, затем подчинённые группы по принципу каскада.</li>
+        <li>Между группами оставляйте пустоту — она работает не хуже камня (принцип ма 間, значимой пустоты).</li>
+        <li>Один сорт породы на весь сад: смешение гранита с известняком разрушает достоверность.</li>
+      </ul>
+      <figure class="photo">
+        <div class="ph-frame" data-kanji="組"><span class="ph-tag">Фото · урок 2.2</span></div>
+        <figcaption>Триада камней «небо — человек — земля» крупным планом; схема неравностороннего треугольника.
+        <span class="kw">japanese rock triad sanzon iwagumi</span></figcaption>
+      </figure>
+    </article>
+
+    <article class="lesson" id="l2-3">
+      <div class="lesson-head"><span class="lesson-no">Урок 2.3</span><div><h3>Сухой пейзаж — карэсансуй</h3><div class="terms">карэсансуй 枯山水 · самон 砂紋 (узоры на песке)</div></div></div>
+      <p><b>Карэсансуй</b> — вершина условности японского сада: вода изображается без воды. Поле светлого гравия или крупного песка читается как море или река, камни — как острова и скалы, а «волны» наносятся граблями: прямые борозды — спокойная вода, концентрические круги вокруг камней — рябь от «берегов».</p>
+      <ul>
+        <li>Гравий: светлый гранитный отсев 4–8 мм; слой 5–7 см по геотекстилю, с жёстким скрытым бордюром.</li>
+        <li>Грабли с редкими крупными зубьями; рисунок обновляется — это часть ритуала ухода за садом.</li>
+        <li>Карэсансуй рассчитан на один взгляд с одной точки (веранда, окно) — по нему не ходят.</li>
+      </ul>
+      <div class="note"><b>Для России:</b> сухой сад — самый «зимостойкий» тип японского сада: ему не нужны насосы и гидроизоляция, а под снегом рельеф камней работает даже лучше.</div>
+      <figure class="photo">
+        <div class="ph-frame" data-kanji="枯"><span class="ph-tag">Фото · урок 2.3</span></div>
+        <figcaption>Классический карэсансуй: концентрические круги граблями вокруг камней-«островов» (Рёандзи, Дайтокудзи).
+        <span class="kw">karesansui raked gravel patterns zen garden</span></figcaption>
+      </figure>
+    </article>
+  </div>
+</section>
+
+<!-- ================= МОДУЛЬ 3 ================= -->
+<section class="module" id="m3">
+  <div class="inner">
+    <div class="mod-head">
+      <div class="mod-spine" aria-hidden="true">水</div>
+      <div>
+        <div class="mod-label">Модуль 3</div>
+        <h2>Вода и водные композиции</h2>
+        <p class="mod-intro">Вода в японском саду — символ времени и жизни. Даже когда её нет физически (карэсансуй), она присутствует как идея. В этом модуле — вода настоящая: пруды, водопады, ручьи.</p>
+      </div>
+    </div>
+
+    <article class="lesson" id="l3-1">
+      <div class="lesson-head"><span class="lesson-no">Урок 3.1</span><div><h3>Пруды и острова</h3><div class="terms">цуру-дзима 鶴島 (журавль) · камэ-дзима 亀島 (черепаха)</div></div></div>
+      <p>Пруд — «море» сада, и в нём почти всегда есть острова. Два канонических типа: <b>остров Журавля</b> — с вертикальным камнем-«крылом», символ устремления и духа, и <b>остров Черепахи</b> — плоский, с камнями-«ластами», символ долголетия и опоры. Часто они ставятся парой, создавая диалог вертикали и горизонтали.</p>
+      <ul>
+        <li>Типы островов по характеру: скалистый (голые камни), горный (камни + одиночная сосна), лесной (полностью под посадками).</li>
+        <li>Береговая линия — только извилистая; правильный овал мгновенно выдаёт «европейский» пруд.</li>
+        <li>Хотя бы один берег делается пологим галечным пляжем (судзухама) — на него «выходит» взгляд.</li>
+      </ul>
+      <figure class="photo">
+        <div class="ph-frame" data-kanji="島"><span class="ph-tag">Фото · урок 3.1</span></div>
+        <figcaption>Пруд с островом Черепахи: плоский остров с сосной и камнями-ластами (сад Конти-ин или Кинкакудзи).
+        <span class="kw">japanese garden turtle island pond kameshima</span></figcaption>
+      </figure>
+    </article>
+
+    <article class="lesson" id="l3-2">
+      <div class="lesson-head"><span class="lesson-no">Урок 3.2</span><div><h3>Искусство водопада</h3><div class="terms">таки 滝 · мидзуоти-иси (камень падения воды)</div></div></div>
+      <p>«Сакутэйки» описывает <b>десять классических форм падения воды</b>, среди них: «падающая полотном» (ровная стеклянная лента), «прерывистая нить» (вода дробится о выступы), «падающая вбок», «двойная», «ступенчатая». Форма задаётся одним элементом — <b>камнем падения</b> с ровной или изрезанной кромкой.</p>
+      <ul>
+        <li>Композиция водопада: камень-зеркало (через него льётся вода), два камня-фланга по бокам, камень-разделитель в чаше — он дробит струю и рождает звук.</li>
+        <li>Высота важнее ширины: узкий высокий водопад выглядит естественнее широкого низкого.</li>
+        <li>Исток маскируется: зритель не должен видеть, откуда берётся вода.</li>
+      </ul>
+      <div class="note"><b>Звук — половина водопада.</b> Меняя камень-разделитель, вы настраиваете звук от звонкого журчания до глухого рокота. Проверяйте на месте, до финальной фиксации камней.</div>
+      <figure class="photo">
+        <div class="ph-frame" data-kanji="滝"><span class="ph-tag">Фото · урок 3.2</span></div>
+        <figcaption>Двухступенчатый садовый водопад с фланговыми камнями; крупный план кромки «падающей полотном» воды.
+        <span class="kw">japanese garden waterfall stones otaki</span></figcaption>
+      </figure>
+    </article>
+
+    <article class="lesson" id="l3-3">
+      <div class="lesson-head"><span class="lesson-no">Урок 3.3</span><div><h3>Ручьи и переходы</h3><div class="terms">яцухаси 八橋 · сава-ватари 沢渡り (переход по камням)</div></div></div>
+      <p>Ручей связывает водопад с прудом и ведёт зрителя по саду. Русло проектируется с <b>плавными S-изгибами</b>: на внешней стороне изгиба — крупные камни, «принимающие удар» воды, на внутренней — пологая галька. Уклон 1–3 % даёт живое течение без порогов.</p>
+      <p>Переходы через воду — самостоятельные композиции: <b>яцухаси</b> — зигзагообразный мостик из досок, положенных внахлёст (по легенде — защита от злых духов, которые ходят только прямо); каменные плиты — монолитный «мост-камень» через узкое место; и просто крупные плоские камни в воде.</p>
+      <ul>
+        <li>Мост никогда не ставится перпендикулярно берегам — только под углом, продолжая изгиб маршрута.</li>
+        <li>Ширина русла обязана меняться: сужение ускоряет «рассказ», расширение — пауза.</li>
+      </ul>
+      <figure class="photo">
+        <div class="ph-frame" data-kanji="橋"><span class="ph-tag">Фото · урок 3.3</span></div>
+        <figcaption>Зигзагообразный мост яцухаси над ирисами; каменная плита через ручей в мшистом саду.
+        <span class="kw">yatsuhashi zigzag bridge iris garden · japanese stone slab bridge stream</span></figcaption>
+      </figure>
+    </article>
+  </div>
+</section>
+
+<!-- ================= МОДУЛЬ 4 ================= -->
+<section class="module" id="m4">
+  <div class="inner">
+    <div class="mod-head">
+      <div class="mod-spine" aria-hidden="true">木</div>
+      <div>
+        <div class="mod-label">Модуль 4</div>
+        <h2>Дендрология и работа со мхом</h2>
+        <p class="mod-intro">Растения в японском саду — не коллекция, а материал для скульптуры. Модуль учит выбирать виды-символы, заменять их зимостойкими аналогами для средней полосы и работать с двумя фирменными техниками: стрижкой карикоми и садом мхов.</p>
+      </div>
+    </div>
+
+    <article class="lesson" id="l4-1">
+      <div class="lesson-head"><span class="lesson-no">Урок 4.1</span><div><h3>Растения-символы и их адаптация</h3><div class="terms">мацу 松 (сосна) · ниваки 庭木</div></div></div>
+      <p>Главное дерево японского сада — <b>сосна</b>, символ долголетия и стойкости. Её формируют в стиле ниваки: ярусная крона с «подушками» хвои на концах ветвей, открытый скелет ствола. В средней полосе России работают сосна обыкновенная и горная — обе прекрасно держат формовку.</p>
+      <p>Теплолюбивую японскую классику заменяем зимостойкими аналогами, сохраняя роль растения в композиции:</p>
+      <ul>
+        <li>Клён веерный (Acer palmatum) → <b>клён ложнозибольдов</b> (Acer pseudosieboldianum): та же ажурная листва и алая осень, зона 4.</li>
+        <li>Сакура → <b>декоративные яблони</b> (Malus 'Royalty', 'Rudolph') и вишня сахалинская: облако розового цветения в мае.</li>
+        <li>Вечнозелёные азалии → <b>рододендроны</b> зимостойких сортов (катевбинский, 'Helsinki University').</li>
+        <li>Бамбук → <b>сазовые злаки и фаргезия</b> в укрытии, либо чистая графика: бамбук только в изгородях и МАФ.</li>
+      </ul>
+      <figure class="photo">
+        <div class="ph-frame" data-kanji="松"><span class="ph-tag">Фото · урок 4.1</span></div>
+        <figcaption>Сосна ниваки с ярусной кроной над водой; клён ложнозибольдов в алой осенней окраске.
+        <span class="kw">niwaki pine japanese garden · Acer pseudosieboldianum autumn</span></figcaption>
+      </figure>
+    </article>
+
+    <article class="lesson" id="l4-2">
+      <div class="lesson-head"><span class="lesson-no">Урок 4.2</span><div><h3>Техника карикоми</h3><div class="terms">карикоми 刈込 · о-карикоми (крупные формы)</div></div></div>
+      <p><b>Карикоми</b> — стрижка кустарников в мягкие округлые формы: «зелёные облака», «живые камни», волны холмов. В отличие от европейской топиари, здесь нет геометрии — только природные, слегка неправильные объёмы, которые перекликаются с настоящими камнями сада и продолжают их ритм.</p>
+      <ul>
+        <li>Породы для средней полосы: <b>спирея японская</b>, <b>кизильник блестящий</b>, туя западная, барбарис Тунберга, низкие сорта пузыреплодника.</li>
+        <li>Формы разного размера группируются как камни — по три-пять, с доминантой.</li>
+        <li>Стрижка 2–3 раза за сезон; форма всегда шире к низу, чтобы нижние ветви получали свет.</li>
+        <li>О-карикоми — крупная скульптурная стрижка целых массивов в единую «горную гряду».</li>
+      </ul>
+      <figure class="photo">
+        <div class="ph-frame" data-kanji="刈"><span class="ph-tag">Фото · урок 4.2</span></div>
+        <figcaption>Волны стриженых азалий о-карикоми (сад Сюкукэйэн или Дайтисидзи); группы зелёных «подушек» рядом с камнями.
+        <span class="kw">okarikomi clipped azalea waves japanese garden</span></figcaption>
+      </figure>
+    </article>
+
+    <article class="lesson" id="l4-3">
+      <div class="lesson-head"><span class="lesson-no">Урок 4.3</span><div><h3>Сад мхов</h3><div class="terms">кокэ 苔 · кокэдэра 苔寺 («храм мхов»)</div></div></div>
+      <p>Мох — это «налёт времени», материализованное ваби-саби: он делает новый сад старым. В российском климате мох растёт охотно, если дать ему три условия: <b>тень, влажность и кислую бедную почву</b>.</p>
+      <ul>
+        <li>Рабочие виды для России: <b>кукушкин лён</b> (Polytrichum) — высокие бархатные куртины, <b>дикранум</b> — плотные подушки, <b>сфагнум</b> — для влажных низин, листоватые мхи (Hypnum) — ковры на камнях.</li>
+        <li>Посадка пластами: дернины с ненарушенным нижним слоем укладываются на утрамбованную кислую почву (pH 5–5,5) и прижимаются; первые 4–6 недель — ежедневное дождевание.</li>
+        <li>Уход — только уборка листвы (мягкой щёткой или воздуходувкой на минимуме) и полив в засуху. Никаких удобрений.</li>
+        <li>На солнечных местах мох заменяется почвопокровными: очитки, тимьян, котула — «псевдомох».</li>
+      </ul>
+      <figure class="photo">
+        <div class="ph-frame" data-kanji="苔"><span class="ph-tag">Фото · урок 4.3</span></div>
+        <figcaption>Сплошной моховой ковёр под клёнами (Сайходзи, «храм мхов», Киото); макросъёмка кукушкина льна на камне.
+        <span class="kw">Saihoji moss temple Kyoto · polytrichum moss stone macro</span></figcaption>
+      </figure>
+    </article>
+  </div>
+</section>
+
+<!-- ================= РАСТИТЕЛЬНАЯ ПАЛИТРА ================= -->
+<section class="module" id="palette">
+  <div class="inner">
+    <div class="mod-head">
+      <div class="mod-spine" aria-hidden="true">植</div>
+      <div>
+        <div class="mod-label">Справочник · к модулю 4</div>
+        <h2>Растительная палитра севера</h2>
+        <p class="mod-intro">Видовой состав для Карельского перешейка и юга Ленинградской области (зоны 3b–4). Растения сгруппированы не ботанически, а по роли в композиции; для каждого указан сюжет — где и зачем оно работает в саду. Местный климат — союзник: кислые почвы любят мох и рододендроны, а долгая зима делает вечнозелёный каркас и зимнюю графику важнее цветения.</p>
+        <div class="legend">
+          <span><span class="ptag">主</span>доминанта</span>
+          <span><span class="ptag">彩</span>сезонный акцент</span>
+          <span><span class="ptag">刈</span>карикоми / стрижка</span>
+          <span><span class="ptag">常</span>вечнозелёный каркас</span>
+          <span><span class="ptag">水</span>у воды</span>
+          <span><span class="ptag">陰</span>тень / цубонива</span>
+          <span><span class="ptag">雪</span>зимняя графика (юкими)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pgroup">
+      <h4>Деревья-доминанты</h4>
+      <p class="pg-note">Скелет сада: одно дерево на композицию, формовка ниваки обязательна. На зиму ярусные кроны защищают юкицури — конусом верёвок от снеголома, как в Кэнрокуэне: сама обвязка — зимнее украшение.</p>
+      <div class="prow"><div class="pname"><b>Сосна обыкновенная</b><i>Pinus sylvestris, в т.ч. 'Watereri'</i></div><div class="proles"><span class="ptag">主</span><span class="ptag">常</span><span class="ptag">雪</span><span class="txt">главная сосна сада</span></div><div class="pnote">Основной кандидат в ниваки: пластична, местная, рыжий ствол — готовый акцент. Сюжеты: остров в пруду, «гора» на склоне, доминанта у карэсансуй. Формовка со 2–3 года посадки.</div></div>
+      <div class="prow"><div class="pname"><b>Сосна горная</b><i>Pinus mugo, сорта mughus / 'Gnom'</i></div><div class="proles"><span class="ptag">主</span><span class="ptag">刈</span><span class="ptag">常</span><span class="txt">малые сады</span></div><div class="pnote">«Сосна в миниатюре» для участков 4–8 соток и цубонивы: держит масштаб сюккэй. Прищипка свечек даёт плотные подушки — работает и как хвойное карикоми.</div></div>
+      <div class="prow"><div class="pname"><b>Лиственница европейская / сибирская</b><i>Larix decidua / sibirica</i></div><div class="proles"><span class="ptag">主</span><span class="ptag">彩</span><span class="ptag">雪</span><span class="txt">крупные участки</span></div><div class="pnote">Единственное «хвойное с осенью»: золото в октябре, зимой — графика ветвей ниваки без хвои. Терпит жёсткую формовку. Сюжет: доминанта парка, дерево у ворот.</div></div>
+      <div class="prow"><div class="pname"><b>Ель обыкновенная</b><i>Picea abies, карлики 'Nidiformis', 'Little Gem'</i></div><div class="proles"><span class="ptag">常</span><span class="ptag">刈</span><span class="txt">фон и подушки</span></div><div class="pnote">Видовая ель — тёмный задник-кулиса (граница участка, фон водопада); карликовые гнездовые формы — «зелёные камни» в группах с настоящими камнями.</div></div>
+    </div>
+
+    <div class="pgroup">
+      <h4>Деревья сезонных акцентов</h4>
+      <p class="pg-note">По столпу 6 — единицы на сад, с разведением «выступлений» по календарю: цветение в мае, багрянец в сентябре-октябре, плоды и кора — зимой.</p>
+      <div class="prow"><div class="pname"><b>Клён ложнозибольдов</b><i>Acer pseudosieboldianum</i></div><div class="proles"><span class="ptag">彩</span><span class="ptag">陰</span><span class="txt">главный «японский» акцент</span></div><div class="pnote">Полноценная замена клёна веерного: ажурный лист, алая осень, зона 4. Сюжеты: над цукубаем, у моста, красное пятно над мхом (эталон столпа 6). Полутень, защита от ветра.</div></div>
+      <div class="prow"><div class="pname"><b>Клён Гиннала (приречный)</b><i>Acer ginnala</i></div><div class="proles"><span class="ptag">彩</span><span class="ptag">刈</span><span class="ptag">水</span><span class="txt">рабочая лошадка</span></div><div class="pnote">Зона 3, огненная осень, терпит стрижку — можно вести и деревцем у воды, и крупной стриженой кулисой. Дешёв и надёжен для общественных объектов.</div></div>
+      <div class="prow"><div class="pname"><b>Яблони декоративные</b><i>Malus 'Royalty', 'Rudolph', 'Ola'</i></div><div class="proles"><span class="ptag">彩</span><span class="txt">«сакура севера»</span></div><div class="pnote">Майское облако цветения для сюжета ханами (урок 1.1) + зимой держат яркие плоды. Видовая точка проектируется прямо под крону.</div></div>
+      <div class="prow"><div class="pname"><b>Вишня сахалинская / черёмуха Маака</b><i>Prunus sargentii / maackii</i></div><div class="proles"><span class="ptag">彩</span><span class="ptag">雪</span><span class="txt">цветение + кора</span></div><div class="pnote">Сахалинская вишня — ближайшая настоящая «сакура» для зоны 4; черёмуха Маака — ради глянцевой медной коры, которая солирует зимой на фоне снега.</div></div>
+      <div class="prow"><div class="pname"><b>Рябина обыкновенная</b><i>Sorbus aucuparia, плакучие и узкие формы</i></div><div class="proles"><span class="ptag">彩</span><span class="ptag">雪</span><span class="txt">лесной участок</span></div><div class="pnote">Для сценария «сад в лесу»: своя, не спорит с сосняком, ягоды в снегу — сюжет юкими и птицы в кадре.</div></div>
+    </div>
+
+    <div class="pgroup">
+      <h4>Кустарники для карикоми</h4>
+      <p class="pg-note">Замена стриженых азалий. Формы всегда шире к низу, группировка как у камней — 3–5 с доминантой (урок 4.2).</p>
+      <div class="prow"><div class="pname"><b>Спирея японская</b><i>Spiraea japonica 'Little Princess', 'Golden Princess'</i></div><div class="proles"><span class="ptag">刈</span><span class="txt">основная «подушка»</span></div><div class="pnote">Главный материал волн о-карикоми: зона 3, растёт быстро, стрижку любит. Бонус — розовое цветение по стриженой форме в июле, срезается после.</div></div>
+      <div class="prow"><div class="pname"><b>Кизильник блестящий</b><i>Cotoneaster lucidus</i></div><div class="proles"><span class="ptag">刈</span><span class="txt">крупные формы</span></div><div class="pnote">Держит форму плотнее всех листопадных: «зелёные камни» до 1,2 м, кулисы, поперечные экраны в «пенале». Глянцевый лист + винная осень.</div></div>
+      <div class="prow"><div class="pname"><b>Барбарис Тунберга</b><i>Berberis thunbergii, низкие сорта</i></div><div class="proles"><span class="ptag">刈</span><span class="ptag">彩</span><span class="txt">цветные подушки</span></div><div class="pnote">Пурпурные и жёлтые подушки — дозированный цвет в монохроме. Выше снегового покрова подмерзает, поэтому только низкие формы — само ограничение работает на стиль.</div></div>
+      <div class="prow"><div class="pname"><b>Туя западная</b><i>Thuja occidentalis 'Globosa', 'Danica', 'Smaragd'</i></div><div class="proles"><span class="ptag">刈</span><span class="ptag">常</span><span class="txt">вечнозелёное карикоми</span></div><div class="pnote">Шаровидные — «камни», которые не исчезают зимой; 'Smaragd' — колонны для ритма изгороди-кулисы. Весной притенять от подгорания.</div></div>
+      <div class="prow"><div class="pname"><b>Пузыреплодник калинолистный</b><i>Physocarpus opulifolius</i></div><div class="proles"><span class="ptag">刈</span><span class="txt">общественные объекты</span></div><div class="pnote">Неубиваем (зона 2), быстро закрывает объём — ассортимент для парков и отелей из практикума, где стрижёт бригада по шаблону.</div></div>
+    </div>
+
+    <div class="pgroup">
+      <h4>Вечнозелёный каркас</h4>
+      <p class="pg-note">То, что держит сад с ноября по апрель — половину года. В северном японском саду эта группа важнее цветущей.</p>
+      <div class="prow"><div class="pname"><b>Микробиота перекрёстнопарная</b><i>Microbiota decussata</i></div><div class="proles"><span class="ptag">常</span><span class="ptag">陰</span><span class="ptag">水</span><span class="txt">хвойный «мох»</span></div><div class="pnote">Стелющиеся волны мягкой хвои, зона 2, терпит тень — каскады по склону, «стекание» с подпорных камней к воде, зимой бронзовеет. Один из лучших видов для стиля вообще.</div></div>
+      <div class="prow"><div class="pname"><b>Можжевельники казацкий и горизонтальный</b><i>Juniperus sabina / horizontalis</i></div><div class="proles"><span class="ptag">常</span><span class="txt">связки камней</span></div><div class="pnote">«Прижимают» группы камней к земле, маскируют стыки исигуми с гравием. Казацкий формуется в ярусные лапы — почти ниваки без дерева.</div></div>
+      <div class="prow"><div class="pname"><b>Рододендроны зимостойкие</b><i>Rh. catawbiense, 'Helsinki University', Rh. brachycarpum</i></div><div class="proles"><span class="ptag">常</span><span class="ptag">彩</span><span class="ptag">陰</span><span class="txt">замена вечнозелёных азалий</span></div><div class="pnote">Финская селекция держит −35 °C. Сюжет: цветовой взрыв начала июня у видовой точки, остальные 11 месяцев — плотная вечнозелёная масса в полутени. Кислая почва региона — то, что им нужно.</div></div>
+      <div class="prow"><div class="pname"><b>Азалии листопадные</b><i>Rhododendron luteum и гибриды</i></div><div class="proles"><span class="ptag">彩</span><span class="txt">майский акцент</span></div><div class="pnote">Не заменяют стриженые японские, но дают ту самую азалиевую вспышку цвета; после цветения — просто зелёная масса, осенью — багрянец.</div></div>
+    </div>
+
+    <div class="pgroup">
+      <h4>Теневой ярус и растения у воды</h4>
+      <p class="pg-note">Для цубонивы, северных сторон, берегов ручья. Принцип кансо: 2–3 вида крупными пятнами, не коллекция.</p>
+      <div class="prow"><div class="pname"><b>Страусник обыкновенный</b><i>Matteuccia struthiopteris</i></div><div class="proles"><span class="ptag">陰</span><span class="ptag">水</span><span class="txt">главный папоротник</span></div><div class="pnote">Вазы-воронки у тенистой воды и стен; агрессивно расползается — сажать в ограничителе. Мельче и сдержаннее — щитовник и кочедыжник.</div></div>
+      <div class="prow"><div class="pname"><b>Хосты</b><i>Hosta, сине- и зеленолистные сорта</i></div><div class="proles"><span class="ptag">陰</span><span class="txt">пятно у камня</span></div><div class="pnote">Северная замена аралиевым: крупный лист у подножия камня или фонаря. Только спокойные однотонные сорта — пёстрые ломают монохром.</div></div>
+      <div class="prow"><div class="pname"><b>Бадан толстолистный</b><i>Bergenia crassifolia</i></div><div class="proles"><span class="ptag">陰</span><span class="ptag">常</span><span class="txt">кожистый «глянец»</span></div><div class="pnote">Полувечнозелёный: краснеющие зимующие листья у камней — фактура «старого сада» уже в апреле, когда всё голое.</div></div>
+      <div class="prow"><div class="pname"><b>Ирис сибирский</b><i>Iris sibirica</i></div><div class="proles"><span class="ptag">水</span><span class="ptag">彩</span><span class="txt">сюжет яцухаси</span></div><div class="pnote">Канонический спутник зигзаг-моста (урок 3.3) вместо ириса мечевидного: узкий вертикальный лист держит композицию у воды всё лето, цветение — июнь.</div></div>
+      <div class="prow"><div class="pname"><b>Дерен белый</b><i>Cornus alba 'Sibirica'</i></div><div class="proles"><span class="ptag">水</span><span class="ptag">雪</span><span class="ptag">刈</span><span class="txt">зимний красный</span></div><div class="pnote">Алые побеги на снегу и на фоне тёмной воды — главный сюжет юкими из местных растений. Ежегодная низкая обрезка даёт и цвет побегов, и стриженую форму.</div></div>
+    </div>
+
+    <div class="pgroup">
+      <h4>Злаки и «мотив бамбука»</h4>
+      <p class="pg-note">Живой бамбук в зоне 4 — эксперимент, а не приём. Вертикальную графику дают злаки, сам бамбук уходит в изгороди, жёлоб какэи и сиси-одоси.</p>
+      <div class="prow"><div class="pname"><b>Молиния голубая</b><i>Molinia caerulea 'Heidebraut', 'Moorhexe'</i></div><div class="proles"><span class="ptag">彩</span><span class="ptag">雪</span><span class="txt">прозрачная вертикаль</span></div><div class="pnote">Фонтан тонких вертикалей — «бамбуковое» движение на ветру; золотая осенью, стоит до снега. Сажается одиночным пятном у камня.</div></div>
+      <div class="prow"><div class="pname"><b>Щучка дернистая</b><i>Deschampsia cespitosa</i></div><div class="proles"><span class="ptag">陰</span><span class="ptag">水</span><span class="txt">злак для тени</span></div><div class="pnote">Редкий злак, живущий в полутени и сырости, — берега ручья в лесном сценарии. Туман соцветий смягчает камни.</div></div>
+      <div class="prow"><div class="pname"><b>Хаконехлоя большая</b><i>Hakonechloa macra</i></div><div class="proles"><span class="ptag">陰</span><span class="txt">только с оговоркой</span></div><div class="pnote">«Тот самый» японский злак-каскад, но зона 5: только юг области, защищённый двор, мульча + укрытие. В проекты с гарантией не закладывать — заменять щучкой или осокой горной.</div></div>
+      <div class="prow"><div class="pname"><b>Фаргезия Мурьэлы</b><i>Fargesia murielae</i></div><div class="proles"><span class="ptag">常</span><span class="ptag">陰</span><span class="txt">эксперимент</span></div><div class="pnote">Единственный шанс живого бамбука: незимостойкие листья, но куст восстанавливается от корня в защищённом дворе под снегом. Статус — «личный эксперимент заказчика», не проектная позиция.</div></div>
+    </div>
+
+    <div class="pgroup">
+      <h4>Мхи и почвопокровный «нижний этаж»</h4>
+      <p class="pg-note">Подробно о посадке мха — урок 4.3. Здесь состав: настоящие мхи для тени и «псевдомох» для солнца.</p>
+      <div class="prow"><div class="pname"><b>Кукушкин лён</b><i>Polytrichum commune</i></div><div class="proles"><span class="ptag">陰</span><span class="txt">главный ковёр</span></div><div class="pnote">Высокий бархат тёмно-зелёного — основной моховой ковёр сада, эффект Сайходзи. Берётся пластами из местного леса (с разрешения владельца угодий).</div></div>
+      <div class="prow"><div class="pname"><b>Дикранум и гипновые мхи</b><i>Dicranum, Hypnum</i></div><div class="proles"><span class="ptag">陰</span><span class="ptag">雪</span><span class="txt">подушки и камни</span></div><div class="pnote">Дикранум — плотные округлые подушки-кочки; гипновые — тонкие ковры, заселяющие сами камни и основания фонарей: «налёт времени» за 2–3 сезона.</div></div>
+      <div class="prow"><div class="pname"><b>Копытень европейский</b><i>Asarum europaeum</i></div><div class="proles"><span class="ptag">陰</span><span class="ptag">常</span><span class="txt">глянцевый «макромох»</span></div><div class="pnote">Круглый зимующий глянцевый лист, ковёр 5–10 см — читается как крупный мох, растёт там, где настоящему сухо. Местный лесной вид.</div></div>
+      <div class="prow"><div class="pname"><b>Очитки и тимьян</b><i>Sedum acre / album, Thymus serpyllum</i></div><div class="proles"><span class="txt">«псевдомох» для солнца</span></div><div class="pnote">Солнечные швы тоби-иси и нобэдан, карманы в исигуми — там, где мох выгорит. Стриженым не бывает — подбирать изначально низкие формы.</div></div>
+      <div class="prow"><div class="pname"><b>Вереск обыкновенный</b><i>Calluna vulgaris</i></div><div class="proles"><span class="ptag">刈</span><span class="ptag">彩</span><span class="txt">лесной сценарий</span></div><div class="pnote">Для участка в сосновом лесу: природные подушки на кислом песке, лёгкая стрижка после цветения превращает заросль в низкое карикоми.</div></div>
+    </div>
+
+    <div class="note" style="margin-top:36px"><b>Правило палитры:</b> это меню, а не посадочная ведомость. В один проект из справочника берётся не больше десяти позиций (столп 4 — кансо), из них 2–3 — крупными массами, остальные — единичными акцентами. Проверяйте ведомость: если ни один вид не занимает более 20 % площади посадок — сад пёстрый, укрупняйте пятна.</div>
+  </div>
+</section>
+
+<!-- ================= МОДУЛЬ 5 ================= -->
+<section class="module" id="m5">
+  <div class="inner">
+    <div class="mod-head">
+      <div class="mod-spine" aria-hidden="true">灯</div>
+      <div>
+        <div class="mod-label">Модуль 5</div>
+        <h2>Малые архитектурные формы и детали</h2>
+        <p class="mod-intro">Детали — то, что заказчик фотографирует, а знаток проверяет первым делом. Фонарь, чаша, дорожка: у каждого элемента есть каноническое место и типичные ошибки размещения.</p>
+      </div>
+    </div>
+
+    <article class="lesson" id="l5-1">
+      <div class="lesson-head"><span class="lesson-no">Урок 5.1</span><div><h3>Традиционные элементы</h3><div class="terms">торо 灯籠 · цукубай 蹲踞 · сиси-одоси 鹿威し</div></div></div>
+      <p><b>Каменные фонари (торо)</b> пришли в сад из храмов вместе с чайной церемонией. Основные типы: касуга-торо — высокий на колонне, для парадных мест; орибэ-торо — на заглублённой ножке, у цукубая; юкими-торо — низкий, с широкой крышей «для любования снегом», ставится у воды; оки-торо — маленький переставной. Правило одно: фонарь освещает что-то конкретное — развилку дорожки, чашу, отражение в воде, — а не стоит «для красоты» посреди газона.</p>
+      <p><b>Цукубай</b> — низкая каменная чаша для омовения рук перед чайным домом; к ней склоняются, отсюда имя («присесть на корточки»). Вокруг чаши — канонический набор камней: передний (на котором стоят), боковые для кувшина и светильника. <b>Сиси-одоси</b> («пугало для оленей») — бамбуковое коромысло, которое наполняется водой, опрокидывается и ударяет о камень: редкий сухой стук подчёркивает тишину сада.</p>
+      <figure class="photo">
+        <div class="ph-frame" data-kanji="灯"><span class="ph-tag">Фото · урок 5.1</span></div>
+        <figcaption>Юкими-торо со снежной шапкой у пруда; цукубай с бамбуковым жёлобом какэи; сиси-одоси в момент удара.
+        <span class="kw">yukimi toro snow lantern · tsukubai bamboo kakei · shishi odoshi deer scarer</span></figcaption>
+      </figure>
+    </article>
+
+    <article class="lesson" id="l5-2">
+      <div class="lesson-head"><span class="lesson-no">Урок 5.2</span><div><h3>Садовые дорожки</h3><div class="terms">тоби-иси 飛石 · нобэдан 延段</div></div></div>
+      <p><b>Тоби-иси</b> — «летящие камни»: отдельные плоские камни, задающие не только путь, но и темп ходьбы. Крупный камень — остановка, здесь открывается вид; цепочка мелких — быстрый проход. Классические параметры: шаг между центрами ~60 см, зазор 8–10 см, высота над землёй 3–5 см, поверхность строго нескользкая.</p>
+      <p><b>Нобэдан</b> — сплошная мощёная лента из камней разной формы, подогнанных с тонким швом: парадный вариант для входной зоны и участков у дома. Высший класс — сочетание колотого и пилёного камня в одном полотне.</p>
+      <ul>
+        <li>Рисунок тоби-иси раскладывается «по шагу» реального человека — проверяйте проходом по месту.</li>
+        <li>Развилка отмечается более крупным камнем; никаких камней «в никуда».</li>
+        <li>Камни утапливаются в мох или гравий — дорожка должна выглядеть найденной, а не построенной.</li>
+      </ul>
+      <figure class="photo">
+        <div class="ph-frame" data-kanji="飛"><span class="ph-tag">Фото · урок 5.2</span></div>
+        <figcaption>Тоби-иси через моховой ковёр с изгибом и камнем-развилкой; нобэдан из подогнанных камней у чайного дома (Кацура).
+        <span class="kw">tobiishi stepping stones moss · nobedan stone paving Katsura</span></figcaption>
+      </figure>
+    </article>
+
+    <article class="lesson" id="l5-3">
+      <div class="lesson-head"><span class="lesson-no">Урок 5.3</span><div><h3>Освещение</h3><div class="terms">принцип: свет — в землю, источник — скрыт</div></div></div>
+      <p>Японский сад ночью — это не подсвеченная территория, а несколько светящихся картин в темноте. Освещаются композиции: группа камней, крона клёна снизу, чаша цукубая, — а всё остальное остаётся в тени. Темнота здесь такой же материал, как гравий и мох.</p>
+      <ul>
+        <li>Тёплый свет 2200–2700 К, минимальная яркость; никакого холодного белого.</li>
+        <li>Светильники направляются вниз или в объект; источник света глаз видеть не должен.</li>
+        <li>Электрическая «свеча» внутри торо — тусклая, мерцающего тона: фонарь должен теплиться, а не сиять.</li>
+        <li>3–5 световых акцентов на средний сад — достаточно. Больше — уже парк аттракционов.</li>
+      </ul>
+      <figure class="photo">
+        <div class="ph-frame" data-kanji="夜"><span class="ph-tag">Фото · урок 5.3</span></div>
+        <figcaption>Ночная подсветка клёна и камней точечными источниками; тёплый свет из каменного фонаря на снегу.
+        <span class="kw">japanese garden night lighting maple uplight</span></figcaption>
+      </figure>
+    </article>
+  </div>
+</section>
+
+<!-- ================= МОДУЛЬ 6 ================= -->
+<section class="module" id="m6">
+  <div class="inner">
+    <div class="mod-head">
+      <div class="mod-spine" aria-hidden="true">図</div>
+      <div>
+        <div class="mod-label">Модуль 6</div>
+        <h2>Подготовка к визуализации: Archicad + Enscape</h2>
+        <p class="mod-intro">Финальный модуль переводит принципы сада на язык BIM: рельеф в Mesh, материалы с «налётом времени», сезонные сценарии для показа заказчику.</p>
+      </div>
+    </div>
+
+    <article class="lesson" id="l6-1">
+      <div class="lesson-head"><span class="lesson-no">Урок 6.1</span><div><h3>Работа с рельефом</h3><div class="terms">Mesh · перепады высот · глубина сцены</div></div></div>
+      <p>Первое искушение проектировщика — выровнять участок. В японском саду это ошибка: <b>перепады высот и есть композиция</b>. Холм скрывает часть маршрута (миэгакурэ), понижение собирает воду и взгляд, подъём дорожки к видовой точке делает раскрытие пейзажа физическим переживанием.</p>
+      <ul>
+        <li>Рельеф строится элементом Mesh по опорным горизонталям геоподосновы; искусственные холмы добавляются редактированием узлов, а не отдельными телами.</li>
+        <li>Перепад даже в 40–60 см на плоском участке уже создаёт глубину: используйте вынутый из пруда грунт для холма за ним.</li>
+        <li>Проверяйте композицию не в плане, а в перспективах с высоты глаз (1,5–1,6 м) с каждой видовой точки.</li>
+      </ul>
+      <figure class="photo">
+        <div class="ph-frame" data-kanji="山"><span class="ph-tag">Фото · урок 6.1</span></div>
+        <figcaption>Сад на выраженном рельефе: дорожка, поднимающаяся между холмами с карикоми; скриншот Mesh с горизонталями в Archicad.
+        <span class="kw">japanese garden hillside path · archicad mesh terrain contours</span></figcaption>
+      </figure>
+    </article>
+
+    <article class="lesson" id="l6-2">
+      <div class="lesson-head"><span class="lesson-no">Урок 6.2</span><div><h3>Текстуры и материалы для Enscape</h3><div class="terms">ваби-саби 侘寂 · albedo · bump · displacement</div></div></div>
+      <p>Ваби-саби — красота несовершенного и состаренного — в визуализации достигается материалами. Новый чистый гранит убивает картинку; нужен камень с лишайником, потёками воды и сколами.</p>
+      <ul>
+        <li>Камень: альбедо с пятнами лишайника + карта bump/normal с реальной фактурой скола; roughness высокий (0,7–0,9), никаких бликов.</li>
+        <li>Гравий карэсансуй: текстура с уже «расчёсанными» бороздами + displacement — борозды обязаны отбрасывать тени на закатном солнце.</li>
+        <li>Мох: тёмно-зелёное альбедо с вариацией + мелкий bump; для ближних планов — трава Enscape с минимальной высотой ворса.</li>
+        <li>Дерево МАФ — выцветшее серебристо-серое, не «свежая доска»; бамбук — матовый, с разнотоном колен.</li>
+      </ul>
+      <div class="note"><b>Приём:</b> одна и та же текстура камня с разными картами grunge-наложений даёт «семейство» камней одной породы — так сохраняется правило единой породы из урока 2.2.</div>
+      <figure class="photo">
+        <div class="ph-frame" data-kanji="侘"><span class="ph-tag">Фото · урок 6.2</span></div>
+        <figcaption>Макрофактуры: старый камень с лишайником, гравий с бороздами, моховой ковёр — референсы для настройки материалов.
+        <span class="kw">lichen stone texture seamless · raked gravel texture · moss texture 4k</span></figcaption>
+      </figure>
+    </article>
+
+    <article class="lesson" id="l6-3">
+      <div class="lesson-head"><span class="lesson-no">Урок 6.3</span><div><h3>Сезонные сценарии</h3><div class="terms">весна · осень · зима — три рендера одной точки</div></div></div>
+      <p>Сильнейший ход в презентации японского сада — показать одну видовую точку в трёх сезонах. Заказчик видит не картинку, а календарь любования из урока 1.1.</p>
+      <ul>
+        <li>Растения дублируются по сезонным слоям (или наборам переопределений): цветущая яблоня / алый клён / графика голых ветвей со снегом — и переключаются комбинациями слоёв.</li>
+        <li>Enscape-прокси деревьев подбираются парами «лето/осень»; зима — ассеты с голыми кронами + белый displacement-материал «снега» на Mesh и крышках фонарей.</li>
+        <li>Солнце: весна — утро, мягкий свет; осень — низкое закатное (борозды гравия и фактуры оживают); зима — сумерки с тёплыми огнями торо.</li>
+        <li>Камера фиксируется: три сезона — строго один ракурс, иначе эффект календаря пропадает.</li>
+      </ul>
+      <figure class="photo">
+        <div class="ph-frame" data-kanji="季"><span class="ph-tag">Фото · урок 6.3</span></div>
+        <figcaption>Триптих одной точки сада: весеннее цветение — осенние клёны — снег на камнях и фонаре.
+        <span class="kw">japanese garden four seasons same view</span></figcaption>
+      </figure>
+    </article>
+  </div>
+</section>
+
+<!-- ================= РЕКОМЕНДАЦИИ ================= -->
+<section class="final" id="final">
+  <div class="inner">
+    <div class="mod-label">Итог курса</div>
+    <h2 style="font-family:var(--display);font-weight:500;font-size:clamp(30px,3.4vw,42px)">Практические рекомендации для проектирования</h2>
+    <ol>
+      <li><b>Избегайте симметрии</b>В Archicad не тиражируйте элементы зеркально и массивами: каждый камень и каждое дерево в модели уникальны — поворот, масштаб, ассет меняются вручную.</li>
+      <li><b>Сначала план, потом детали</b>Расставьте доминанты — главные камни и деревья — с проверкой из видовых точек, и только затем заполняйте пространство второстепенными элементами по принципу каскада.</li>
+      <li><b>Тест освещения</b>Обязательная «примерка» ночного режима в Enscape: свет направлен в землю и в объекты, подчёркивает фактуру и не слепит камеру ни с одной видовой точки.</li>
+    </ol>
+
+    <div class="cases" id="cases">
+      <h3 class="cases-title">Практикум: типовые участки</h3>
+      <p class="cases-sub">Одни и те же шесть столпов дают разные стратегии в зависимости от размера и рельефа. Восемь ситуаций: диагноз → стратегия → приёмы → главная ошибка.</p>
+
+      <article class="case">
+        <div class="case-head"><span class="cj">平</span><h4>Маленький плоский участок</h4><span class="dim">4–8 соток, без рельефа</span></div>
+        <div class="case-body">
+          <p class="strategy"><b>Стратегия:</b> глубину, которой нет, создаём искусственно. Это «сад одного взгляда» с коротким маршрутом: одна сильная композиция от главной видовой точки (окно гостиной, терраса) плюс небольшая прогулочная петля.</p>
+          <ul>
+            <li>Рельеф из ничего: грунт от пруда или котлована карэсансуй насыпается холмом 0,5–0,8 м — этого достаточно, чтобы скрыть часть сада и дать миэгакурэ.</li>
+            <li>Главная ось — по диагонали: это самая длинная линия участка, взгляд получает максимум дистанции.</li>
+            <li>Три плана глубины: передний (камень, фонарь у точки обзора) — средний (карикоми, группа камней) — дальний (кулиса из хвойных). Без переднего плана сцена «плоская».</li>
+            <li>Ложная перспектива: крупнолистные и тёмные растения ближе, мелколистные и светлые — дальше; дорожка слегка сужается к дальнему концу. Участок «удлиняется» на треть.</li>
+            <li>Однотонная спокойная изгородь по периметру — как паспарту: пёстрый забор соседа исчезает, глубина читается лучше.</li>
+            <li>Одна доминанта на весь сад: либо группа камней, либо дерево, либо чаша. Не три.</li>
+          </ul>
+          <div class="err"><b>Ошибка:</b> уместить всё — пруд, ручей, водопад, мостик, чайный домик. На 6 сотках это витрина садового центра, а не сад. Проверка кансо: список элементов должен помещаться в одну строку.</div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case-head"><span class="cj">坂</span><h4>Небольшой участок на склоне, дом наверху</h4><span class="dim">взгляд сверху вниз</span></div>
+        <div class="case-body">
+          <p class="strategy"><b>Стратегия:</b> редчайшее преимущество — сад смотрится сверху, как свиток или макет. Главная композиция проектируется «в плане»: сверху читаются рисунок гравия, кроны целиком, крыши фонарей, зеркало воды. Вода и маршрут «стекают» от дома вниз.</p>
+          <ul>
+            <li>Главная видовая точка — окно или терраса дома: компонуйте сад как картину с высоты, в Archicad поставьте эту камеру первой и держите её открытой всю работу.</li>
+            <li>Террасирование не подпорными стенами, а выходами скал (исигуми): каждый перепад — это «горный уступ» с заглублёнными камнями, стена превращается в пейзаж.</li>
+            <li>Каскад или сухой ручей от верхней террасы вниз — движение от зрителя в глубину сцены; внизу «долина»: пруд или гравийное море, куда всё визуально стекает.</li>
+            <li>Тропа — серпантином поперёк склона с площадками-остановками; каждая площадка развёрнута на свой вид (вниз — на долину, вверх — на «гору» с домом).</li>
+            <li>Деревья — ярусные ниваки: сверху видна вся архитектура кроны, «подушки» хвои читаются как облака под зрителем.</li>
+            <li>Ночная сцена сверху: 3–4 тёплых пятна света внизу склона — из дома сад выглядит как долина с огнями.</li>
+          </ul>
+          <div class="err"><b>Ошибка:</b> высокие деревья прямо под домом — закрывают весь сад с главной точки. Первые 5–7 метров от дома вниз — только низкие формы.</div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case-head"><span class="cj">谷</span><h4>Склон, дом внизу</h4><span class="dim">взгляд снизу вверх</span></div>
+        <div class="case-body">
+          <p class="strategy"><b>Стратегия:</b> склон — готовая «гора», театральный задник. Всё, что на нём стоит, видно из дома постоянно, поэтому склон получает главные события: водопад, каменную гряду, сосну-доминанту.</p>
+          <ul>
+            <li>Водопад или сухой каскад на средней трети склона — с уровня дома он в центре кадра; исток прячется за гребнем (урок 3.2).</li>
+            <li>Вечнозелёный фон по верху склона скрывает границу участка — склон «продолжается» в небо, работает сяккэй.</li>
+            <li>Маршрут вверх — с обещанием: с каждой площадки видно следующую цель (фонарь, камень), но не всю вершину.</li>
+            <li>Подсветка снизу вверх по камням и стволам — вечером склон становится глубокой декорацией.</li>
+          </ul>
+          <div class="err"><b>Ошибка:</b> прямая лестница по оси на дом — превращает «гору» в подъезд. Подъём только косой, со сменой направления.</div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case-head"><span class="cj">細</span><h4>Узкий длинный участок-«пенал»</h4><span class="dim">пропорция 1:3 и вытянутее</span></div>
+        <div class="case-body">
+          <p class="strategy"><b>Стратегия:</b> длину не прятать, а разрезать. Участок делится поперечными кулисами на 2–3 «комнаты», и маршрут идёт зигзагом от стены к стене — реальная прогулка удваивается, а узость перестаёт читаться.</p>
+          <ul>
+            <li>Кулисы — изгородь, крупное карикоми или бамбуковый экран с проёмом; каждая комната — своя сцена (гравийная, мховая, водная).</li>
+            <li>Дорожка тоби-иси пересекает участок по диагоналям; в проёмах кулис — «кадры» следующей комнаты (миэгакурэ в чистом виде).</li>
+            <li>Поперечная полоса нобэдан или ручей поперёк визуально ломают «коридор».</li>
+            <li>В торце — светлый магнит: фонарь, светлый камень или просвет; тёмный тупик убивает перспективу.</li>
+          </ul>
+          <div class="err"><b>Ошибка:</b> дорожка по центру вдоль всего участка — подчёркивает узость и отдаёт весь сад одним взглядом.</div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case-head"><span class="cj">陰</span><h4>Тенистый двор между домом и забором</h4><span class="dim">10–40 м², мало солнца</span></div>
+        <div class="case-body">
+          <p class="strategy"><b>Стратегия:</b> это готовая цубонива (столп 5). Тень — не проблема, а материал: здесь живёт лучший мох, а сад смотрится из окна, как картина в раме.</p>
+          <ul>
+            <li>Состав предельный: мох + 2–3 камня + один теневой акцент (клён, папоротники, хосты).</li>
+            <li>Светлый гравий у стены дома отражает свет вглубь тени — двор светлеет без единого светильника.</li>
+            <li>Вода — только чаша цукубай с капелью, не пруд: звук капель в замкнутом дворе работает как колокол.</li>
+            <li>Главная точка — конкретное окно; компоновать сцену нужно сидя у этого окна, а не стоя во дворе.</li>
+          </ul>
+          <div class="err"><b>Ошибка:</b> газон в тени. Он не выживет и не нужен — его место занимает мох, которому здесь идеально.</div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case-head"><span class="cj">林</span><h4>Участок в лесу</h4><span class="dim">сосны/ели, валуны, типично для северо-запада</span></div>
+        <div class="case-body">
+          <p class="strategy"><b>Стратегия:</b> лес — готовый сяккэй, готовый мох и готовые камни. Японский сад здесь не строится, а «проявляется» редактурой опушки: больше убрать, чем добавить (столп 3 в чистом виде).</p>
+          <ul>
+            <li>Вместо посадок — расчистка: прорезать в подлеске «окна» на лучшие стволы и валуны, поднять кроны сосен — получаются естественные ниваки.</li>
+            <li>Ледниковые гранитные валуны — местный исигуми: докупать только тот же гранит, единая порода соблюдается сама.</li>
+            <li>Черника, брусника, вереск — природное карикоми: подушки только подравниваются.</li>
+            <li>Граница сад/лес размывается: забор прячется в подлеске, дорожка тоби-иси уходит «в лес» и растворяется.</li>
+          </ul>
+          <div class="err"><b>Ошибка:</b> экзоты на фоне соснового леса — сакуры и глицинии спорят с контекстом. Ассортимент подбирается «под лес», акценты — из зимостойких клёнов и рододендронов у дома.</div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case-head"><span class="cj">園</span><h4>Большой участок или частный парк</h4><span class="dim">от 0,5 га</span></div>
+        <div class="case-body">
+          <p class="strategy"><b>Стратегия:</b> формат кайю-сики — прогулочный сад вокруг пруда (Кэнрокуэн, Рицурин, Кацура). Парк проектируется как маршрут на 20–40 минут: сеть сцен, связанных переходами-паузами, с прудом в роли композиционного якоря.</p>
+          <ul>
+            <li>Центральный пруд первым: его грунт — это все холмы парка; через воду работают самые дальние виды.</li>
+            <li>Ритм «сцена — пауза»: событие каждые 30–70 м маршрута, между ними — спокойные проходы под кронами. Пауза — такой же проектируемый элемент, как сцена.</li>
+            <li>Суб-сады как комнаты на ответвлениях: чайный сад родзи, сухой сад у павильона, мховая ложбина — каждый со своим входом-порогом.</li>
+            <li>Паспорт видовых точек: 10–15 камер с фиксацией направления, переднего плана и сезонного пика — это и есть скелет проекта (и готовый список камер Enscape).</li>
+            <li>Взаимные виды: с каждой точки видно 1–2 другие сцены на расстоянии — парк «сшивается» в целое.</li>
+          </ul>
+          <div class="err"><b>Ошибка:</b> равномерная плотность событий. Парк, где красиво везде и одинаково, утомляет к десятой минуте — драматургии нужны тихие такты.</div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case-head"><span class="cj">公</span><h4>Общественный парк или территория отеля</h4><span class="dim">поток посетителей</span></div>
+        <div class="case-body">
+          <p class="strategy"><b>Стратегия:</b> та же драматургия кайю-сики, но с поправкой на поток и эксплуатацию: хрупкие элементы отодвигаются от людей, маршруты дублируются, износ закладывается в проект.</p>
+          <ul>
+            <li>Основные пути — нобэдан и плиты с широким швом (коляски, уборка); тоби-иси остаются на второстепенных «медленных» петлях.</li>
+            <li>Мох и расчёсанный гравий — только в недоступных зонах: за водой, за верёвочным ограждением на бамбуковых стойках (как в храмах — ограждение само по себе японский элемент).</li>
+            <li>Развязка потоков: смотровые площадки-«карманы» у сцен, чтобы остановившиеся не запирали дорожку.</li>
+            <li>Освещение по нормативам, но приём тот же: маршрут — низкими маркерами вниз, сцены — акцентами; заливающего света нет нигде.</li>
+            <li>Ассортимент — только неубиваемый: спирея и кизильник вместо капризных форм, сосна и туя в карикоми; расчёт на бригаду без японского опыта — 2–3 стрижки в год по шаблонам.</li>
+          </ul>
+          <div class="err"><b>Ошибка:</b> перенести приватный сад в масштаб парка без защиты: вытоптанный мох и сбитые борозды гравия за один сезон дискредитируют проект. Всё, чего может коснуться рука или нога, — либо прочное, либо недосягаемое.</div>
+        </div>
+      </article>
+    </div>
+
+    <div class="colophon">
+      <span>Курс «Искусство японского сада: от философии к проектированию»</span>
+      <span>石 · 水 · 木 — камень, вода, дерево</span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script>
+// подсветка активного модуля в навигации
+(function(){
+  const links=[...document.querySelectorAll('.rail nav a')];
+  const map=new Map(links.map(a=>[a.getAttribute('href').slice(1),a]));
+  const obs=new IntersectionObserver(es=>{
+    es.forEach(e=>{
+      if(e.isIntersecting){
+        links.forEach(a=>a.classList.remove('active'));
+        const a=map.get(e.target.id); if(a)a.classList.add('active');
+      }
+    });
+  },{rootMargin:'-30% 0px -60% 0px'});
+  document.querySelectorAll('section[id]').forEach(s=>obs.observe(s));
+})();
+
+// подстановка фотографий: положите файлы рядом с index.html в папку photos/
+// с именами вида 1-1.jpg, 2-3.jpg … — и они автоматически заменят заглушки
+(function(){
+  document.querySelectorAll('article.lesson').forEach(art=>{
+    const id=art.id.replace('l','');           // "1-1"
+    const frame=art.querySelector('.ph-frame');
+    if(!frame)return;
+    const img=new Image();
+    img.onload=()=>{img.alt=art.querySelector('h3').textContent;frame.replaceChildren(img);frame.style.background='none';frame.classList.add('has-img');};
+    img.src='photos/'+id+'.jpg';
+  });
+})();
+</script>
+</body>
+</html>
