@@ -14,4 +14,5 @@ export const navigation: NavItem[] = [
   { href: "/detali", kanji: "灯", label: "5 · Детали и МАФ" },
   { href: "/archicad", kanji: "図", label: "6 · Archicad + Enscape" },
   { href: "/rekomendacii", kanji: "道", label: "Рекомендации" },
+  { href: "/process", kanji: "順", label: "Процесс проекта" },
 ];

@@ -472,6 +472,305 @@ h1 {
   max-width: 62ch;
 }
 
+/* Process tracker */
+.process-tracker {
+  margin-top: 36px;
+}
+
+.process-overall {
+  margin-bottom: 32px;
+  max-width: 66ch;
+}
+
+.process-bar {
+  height: 4px;
+  background: var(--line);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.process-bar-fill {
+  height: 100%;
+  background: var(--shu);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.process-overall-text {
+  margin-top: 10px;
+  font-size: 14.5px;
+  color: var(--stone);
+  letter-spacing: 0.02em;
+}
+
+.process-stages {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.process-stage {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  border-left: 3px solid var(--phase-color, var(--stone));
+}
+
+.process-stage-head {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  color: inherit;
+}
+
+.process-stage-kanji {
+  font-family: var(--jp);
+  font-size: 22px;
+  color: var(--phase-color, var(--stone));
+  flex: 0 0 28px;
+  text-align: center;
+}
+
+.process-stage-title-wrap {
+  flex: 1;
+  min-width: 0;
+}
+
+.process-stage-num {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 2px;
+}
+
+.process-stage-done-mark {
+  font-family: var(--jp);
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--shu);
+}
+
+.process-stage-title {
+  display: block;
+  font-family: var(--display);
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.process-stage-progress {
+  font-family: var(--display);
+  font-size: 15px;
+  color: var(--stone);
+  white-space: nowrap;
+}
+
+.process-stage-toggle {
+  font-family: var(--display);
+  font-size: 22px;
+  color: var(--stone);
+  flex: 0 0 20px;
+  text-align: center;
+}
+
+.process-stage-body {
+  padding: 0 20px 22px;
+  border-top: 1px solid var(--line);
+}
+
+.process-stage-intro {
+  margin-top: 18px;
+  color: var(--ink-soft);
+  font-size: 16px;
+  max-width: 66ch;
+}
+
+.process-items {
+  margin-top: 22px;
+}
+
+.process-item {
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+}
+
+.process-item:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.process-item-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.process-checkbox-wrap {
+  position: relative;
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+}
+
+.process-checkbox-input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  margin: 0;
+  width: 18px;
+  height: 18px;
+}
+
+.process-checkbox-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--line);
+  background: var(--paper);
+  color: #f4efe2;
+  pointer-events: none;
+}
+
+.process-checkbox-input:checked + .process-checkbox-box {
+  background: var(--shu);
+  border-color: var(--shu);
+}
+
+.process-checkbox-input:focus-visible + .process-checkbox-box {
+  outline: 2px solid var(--shu);
+  outline-offset: 2px;
+}
+
+.process-item-title {
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.process-item--done .process-item-title {
+  color: var(--stone);
+}
+
+.process-item-why {
+  margin: 8px 0 0 30px;
+  font-size: 15px;
+  color: var(--ink-soft);
+  max-width: 62ch;
+  line-height: 1.55;
+}
+
+.process-item-link {
+  white-space: nowrap;
+}
+
+.process-note-add,
+.process-note-display {
+  display: block;
+  margin: 10px 0 0 30px;
+  padding: 0;
+  background: none;
+  border: none;
+  font-family: var(--body);
+  font-size: 14.5px;
+  text-align: left;
+  cursor: pointer;
+  max-width: 62ch;
+}
+
+.process-note-add {
+  color: var(--stone);
+  opacity: 0.75;
+}
+
+.process-note-add:hover:not(:disabled) {
+  color: var(--pine);
+  opacity: 1;
+}
+
+.process-note-display {
+  color: var(--ink-soft);
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.process-note-display:hover {
+  color: var(--ink);
+}
+
+.process-note-input {
+  display: block;
+  width: calc(100% - 30px);
+  margin: 10px 0 0 30px;
+  padding: 10px 14px;
+  font-family: var(--body);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--paper-deep);
+  border: 1px solid var(--line);
+  border-radius: 0;
+  resize: none;
+  overflow: hidden;
+  min-height: 56px;
+}
+
+.process-note-input:focus {
+  outline: 2px solid var(--shu);
+  outline-offset: 1px;
+}
+
+.process-gate {
+  margin-top: 24px;
+  border-left-color: var(--shu);
+}
+
+.process-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.process-btn {
+  font-family: var(--body);
+  font-size: 14.5px;
+  padding: 10px 18px;
+  background: var(--paper-deep);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.process-btn:hover {
+  border-color: var(--pine);
+  color: var(--pine);
+}
+
+.process-btn--muted {
+  color: var(--stone);
+}
+
+.process-btn--muted:hover {
+  color: var(--shu);
+  border-color: var(--shu);
+}
+
 .case {
   border: 1px solid var(--line);
   margin-top: 26px;
