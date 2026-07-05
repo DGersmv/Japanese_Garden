@@ -663,7 +663,6 @@ h1 {
 }
 
 .plant-gallery-item {
-  aspect-ratio: 4 / 3;
   overflow: hidden;
   border: 1px solid var(--line);
   background: var(--paper-deep);
@@ -672,8 +671,8 @@ h1 {
 .plant-gallery-item img {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
 }
 
 .plant-gallery-placeholder {
@@ -720,8 +719,8 @@ h1 {
 .lesson-gallery-frame img {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
 }
 
 .lesson-gallery-btn {
@@ -800,7 +799,7 @@ h1 {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 figure.photo {
@@ -820,6 +819,13 @@ figure.photo {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.ph-frame.has-img {
+  aspect-ratio: auto;
+  height: auto;
+  display: block;
+  overflow: visible;
 }
 
 .ph-frame::after {
@@ -851,8 +857,8 @@ figure.photo {
 figure.photo img {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
 }
 
 figcaption {
